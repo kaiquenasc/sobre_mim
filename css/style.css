@@ -1,0 +1,223 @@
+/* Variáveis, se uma cor precisarser mudada, não precisa mexer no código todo. */
+:root{
+    --corFundo: #ffffff;
+    --corHome: #bc5800;
+    --corFormação: #016c6c;
+    --corProjetos: #0003c9;
+    --FooterHome: #bc5800;                      
+    --FooterFormação: #016c6c;
+    --FooterProjetos: #0003c9;
+    --corTexto: #000000;
+    --corTítulo: #ffffff;
+    --corLink: #00eeff;
+    --corLinkH: #007b2f;
+}
+
+html, body{
+    font-family: Fredoka, sans-serif;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--corFundo);
+}
+
+/* Basicamente um retangulosão no fundo, mas se eu quiser posso trocar o fundo, serve mais 
+pra eu conseguir configurar oq tiver dentro dele duma vez */
+.container{
+    padding-top: 15px;
+    width: 90%;
+    height: 85%;
+    margin: auto;
+    background-color: var(--corFundo);
+}
+
+/* Agora os Headers, ou cabeçalho, */
+.headerHome, .headerFormação, .headerProjetos {
+    background: var(--corHome);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+.headerFormação {
+    background: var(--corFormação);
+}
+
+.headerProjetos {
+    background: var(--corProjetos);
+}
+
+/* configuração do texto dos botões, ou melhor, do texto dentro deles */
+.botoes a{
+    padding: 0.75em 1.15em;
+    color: white;
+    border: solid 1px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* O ul é usado pra cirar lista, aqui eu tiro os pontinhos que vem automáticamente em cada
+seção da lista e faço com que fique um ao lado do outro, e não em baixo. */
+.botoes ul{
+    display: flex;
+    gap: 0.8rem;
+    list-style-type: none;
+    justify-content: space-between;
+    padding: 0;
+    margin: 0;
+}
+
+/* hover é algo que acontece ao passar o mouse em cima, nesse caso, o botão fica branco. */
+.botoes a:hover {
+    background-color: var(--corFundo);
+    color: rgb(0, 0, 0);
+    transform: translateY(-2px); /* Levanta o botão */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Aqui eu deixo tudo centralizado e tiro da esquerda */
+.sobreSection{
+    text-align: center;
+}
+
+/* A imagem estava muito colada do texto abaixo, e por isso uma pequena margem. */
+.sobreSection img{
+    margin-bottom: 5px;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    height: 70px;
+    box-sizing: border-box;
+}
+
+/* Três footers pras 3 "abas" que tem no projeto, é o rodapé */
+.FooterHome, .FooterFormação, .FooterProjetos{
+    width: 100%;
+    min-height: 50px;
+    height: 80px;
+    background-color: var(--FooterHome);
+    color: #ffffff;
+    margin-top: auto;
+}
+
+.FooterFormação{
+    background-color: var(--FooterFormação);
+}
+
+.FooterProjetos{
+    background-color: var(--FooterProjetos);
+}
+
+/* Aqui eu deixo tudo centralizado e tiro da esquerda */
+footer p{
+    margin: 0;
+}
+
+.icones{
+    display: flex;
+    gap: 15px;
+    margin-top: auto;
+}
+
+.icones a{
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 5px;
+    border: 1px solid white;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    transition: all 0.3s ease;
+}
+
+/* Efeitos hover específicos para cada tipo de footer */
+.FooterHome .icones a:hover {
+    background-color: white;
+    color: var(--FooterHome);
+    transform: translateY(-2px);
+}
+
+.FooterFormação .icones a:hover {
+    background-color: white;
+    color: var(--FooterFormação);
+    transform: translateY(-2px);
+}
+
+.FooterProjetos .icones a:hover {
+    background-color: white;
+    color: var(--FooterProjetos);
+    transform: translateY(-2px);
+}
+
+.cursosContainer{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.curso_card {
+    flex: 1 1 calc(33% - 2rem); 
+    margin: 10px 0;
+    max-width: 600px;
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    text-align: center; /* Garante alinhamento central no texto */
+}
+
+.curso_card img{
+    display: block; /*Remove espaço abaixo da imagem*/
+    width: 100%; /*Largura total do container*/
+}
+.curso_card_content {
+    padding: 1rem 1.25rem;
+    border: 1px solid #ccc;
+    border-radius: 0 0 8px 8px; /*Arredonda apenas os cantos inferiores*/
+    border-top: transparent; /*Remove borda do topo*/
+    transition: .35s;
+    cursor: pointer;
+}
+.curso_card:hover{
+    transform: translateY(-5px);
+}
+.cursosContainer:hover > :not(:hover){
+    opacity: .4;
+    transform: scale(0.9);
+}
+.curso_card iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-width: 100%;
+    border: none;
+    display: block;
+}
+
+.btn-curriculo {
+    display: block;         /* Faz o botão ocupar a linha toda */
+    margin: 15px auto;      /* Centraliza automaticamente */
+    width: fit-content;     /* Ajusta o tamanho ao texto */
+    padding: 10px 20px;
+    background-color: #0077b6;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.3s;
+    text-align: center;
+}
+
+.btn-curriculo:hover {
+    background-color: #023e8a;
+}
+
